@@ -17,7 +17,6 @@ export default function useMovies(searchTerm) {
                 'Content-Type': 'application/json',
                 'trakt-api-version': '2',
                 'trakt-api-key': traktClientId,
-                'User-Agent': 'react-movie-search/1.0.0',
             },
         });
 
