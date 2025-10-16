@@ -80,7 +80,9 @@ const MovieDisplay = ({ movie }) => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions
+                        sx={{ display: 'flex', justifyContent: 'flex-end' }}
+                    >
                         <Button size="small" onClick={handleOpenMovie}>
                             Know More
                         </Button>
