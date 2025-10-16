@@ -6,6 +6,7 @@ import { Navbar } from "@/components";
 import Home from "@/pages/home";
 import Pricing from "@/pages/pricing";
 import Blog from "./pages/blog";
+import Movie from "@/pages/movie";
 
 function App() {
   const queryClient = createQueryClient();
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/movie/:imdbID" element={<Movie />} />
         </Routes>
         <ReactQueryDevtools />
       </QueryClientProvider>
