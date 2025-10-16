@@ -81,13 +81,6 @@ function Movie() {
 
     return (
         <Container maxWidth="lg" sx={{ py: 6 }}>
-            <Button
-                variant="outlined"
-                onClick={() => navigate(-1)}
-                sx={{ mb: 3 }}
-            >
-                Back
-            </Button>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={4}>
                     <Box
@@ -160,16 +153,27 @@ function Movie() {
                             ))}
                         </Box>
                     )}
-                    <Button
-                        component="a"
-                        href={externalLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        variant="contained"
-                        sx={{ mt: 3 }}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: 2,
+                            alignItems: 'center',
+                            mt: 3,
+                        }}
                     >
-                        View on IMDb
-                    </Button>
+                        <Button variant="outlined" onClick={() => navigate(-1)}>
+                            Go Back
+                        </Button>
+                        <Button
+                            component="a"
+                            href={externalLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="contained"
+                        >
+                            View on IMDb
+                        </Button>
+                    </Box>
                 </Grid>
             </Grid>
         </Container>
