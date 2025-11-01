@@ -1,10 +1,16 @@
+import { useSearchParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 import MovieCard from '@/components/movies/movie-card';
+import useMovies from '@/hooks/useMovies';
 
-function MovieList({ movieData = [], isLoading, error }) {
+function Movies() {
+    const [searchParams] = useSearchParams();
+    const searchTerm = searchParams.get('search') || '';
+    const { data: movieData, isLoading, error } = useMovies(searchTerm);
+
     if (isLoading) {
         return (
             <Box sx={{ width: '80%', marginTop: '10px', marginX: 'auto' }}>
@@ -71,4 +77,4 @@ function MovieList({ movieData = [], isLoading, error }) {
     );
 }
 
-export default MovieList;
+export default Movies;
