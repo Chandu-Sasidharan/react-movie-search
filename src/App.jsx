@@ -5,6 +5,7 @@ import { Navbar } from '@/components';
 import Layout from '@/pages/layout';
 import Movies from '@/pages/movies';
 import Movie from '@/pages/movie';
+import NotFound from '@/pages/not-found';
 
 const queryClient = createQueryClient();
 
@@ -22,6 +23,7 @@ function App() {
                         <Route index element={<Movies />} />
                     </Route>
                     <Route path="/movie/:imdbID" element={<Movie />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </QueryClientProvider>
         </BrowserRouter>
