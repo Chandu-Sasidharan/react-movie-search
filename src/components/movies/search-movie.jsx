@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useSearchParams, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -10,15 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 
 function SearchMovies() {
-    const [searchParams] = useSearchParams();
-    const params = searchParams.get('search') || '';
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!params) {
-            navigate('/movies/trending', { replace: true });
-        }
-    }, [params, navigate]);
 
     const {
         register,
@@ -70,16 +61,6 @@ function SearchMovies() {
                             <SearchIcon />
                         </IconButton>
                     </Paper>
-                    {/* <Typography
-                        sx={{
-                            fontFamily: 'monospace',
-                        }}
-                    >
-                        {!searchTerm && `Here's what's hot right now!`}
-                        {searchTerm &&
-                            !!movieData.length &&
-                            `TADA 🎉 : Results for '${searchTerm}'`}
-                    </Typography> */}
                 </Box>
                 <Typography
                     sx={{
