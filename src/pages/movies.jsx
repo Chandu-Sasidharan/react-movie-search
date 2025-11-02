@@ -65,15 +65,29 @@ function Movies() {
     }
 
     return (
-        <Grid
-            container
-            spacing={5}
-            sx={{ paddingX: { xs: '10px', sm: '80px' } }}
-        >
-            {movieData.map((movie) => (
-                <MovieCard movie={movie} key={movie.imdbID} />
-            ))}
-        </Grid>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <Typography
+                sx={{
+                    fontFamily: 'monospace',
+                    paddingX: { xs: '10px', sm: '80px' },
+                    alignSelf: 'end',
+                }}
+            >
+                {!searchTerm && `Here's what's hot right now!`}
+                {searchTerm &&
+                    !!movieData.length &&
+                    `TADA 🎉 : Results for '${searchTerm}'`}
+            </Typography>
+            <Grid
+                container
+                spacing={5}
+                sx={{ paddingX: { xs: '10px', sm: '80px' } }}
+            >
+                {movieData.map((movie) => (
+                    <MovieCard movie={movie} key={movie.imdbID} />
+                ))}
+            </Grid>
+        </Box>
     );
 }
 

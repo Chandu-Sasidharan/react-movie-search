@@ -6,9 +6,9 @@ import { Navbar, SearchMovies } from '@/components';
 import Movies from '@/pages/movies';
 import Movie from '@/pages/movie';
 
-function App() {
-    const queryClient = createQueryClient();
+const queryClient = createQueryClient();
 
+function App() {
     return (
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>
@@ -20,7 +20,6 @@ function App() {
                     />
                     <Route path="/movies" element={<SearchMovies />}>
                         <Route index element={<Movies />} />
-                        <Route path="trending" element={<Movies />} />
                     </Route>
                     <Route path="/movie/:imdbID" element={<Movie />} />
                 </Routes>

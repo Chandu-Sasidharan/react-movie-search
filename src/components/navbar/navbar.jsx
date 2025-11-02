@@ -12,7 +12,7 @@ function Navbar() {
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ mr: 1 }} />
                     <Link
-                        to="/movies/trending"
+                        to="/movies"
                         component={RouterLink}
                         sx={{
                             mt: 0.5,
