@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import createQueryClient from '@/utils/createQueryClient';
-import { Navbar, SearchMovies } from '@/components';
+import { Navbar } from '@/components';
+import Layout from '@/pages/layout';
 import Movies from '@/pages/movies';
 import Movie from '@/pages/movie';
 
@@ -18,12 +18,11 @@ function App() {
                         path="/"
                         element={<Navigate to="/movies" replace />}
                     />
-                    <Route path="/movies" element={<SearchMovies />}>
+                    <Route path="/movies" element={<Layout />}>
                         <Route index element={<Movies />} />
                     </Route>
                     <Route path="/movie/:imdbID" element={<Movie />} />
                 </Routes>
-                <ReactQueryDevtools />
             </QueryClientProvider>
         </BrowserRouter>
     );

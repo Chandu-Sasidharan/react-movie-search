@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -25,61 +25,56 @@ function SearchMovies() {
     };
 
     return (
-        <>
-            <Box>
-                <Box
+        <Box>
+            <Box
+                sx={{
+                    marginTop: '10px',
+                    paddingX: { xs: '10px', sm: '80px' },
+                    paddingY: '20px',
+                    display: 'flex',
+                    justifyContent: { xs: 'center', md: 'space-between' },
+                    alignItems: 'end',
+                    flexWrap: 'wrap',
+                    gap: '20px',
+                }}
+            >
+                <Paper
+                    component="form"
+                    onSubmit={handleSubmit(onSubmit)}
                     sx={{
-                        paddingX: { xs: '10px', sm: '80px' },
-                        paddingY: '20px',
+                        padding: '2px 4px',
                         display: 'flex',
-                        justifyContent: { xs: 'center', md: 'space-between' },
-                        alignItems: 'end',
-                        flexWrap: 'wrap',
-                        gap: '20px',
+                        alignItems: 'center',
+                        width: 400,
                     }}
                 >
-                    <Paper
-                        component="form"
-                        onSubmit={handleSubmit(onSubmit)}
-                        sx={{
-                            padding: '2px 4px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            width: 400,
-                        }}
+                    <InputBase
+                        sx={{ marginLeft: 1, flex: 1 }}
+                        placeholder="Search Movies"
+                        {...register('searchTerm', { required: true })}
+                    />
+                    <IconButton
+                        type="submit"
+                        sx={{ p: '10px' }}
+                        aria-label="search"
                     >
-                        <InputBase
-                            sx={{ marginLeft: 1, flex: 1 }}
-                            placeholder="Search Movies"
-                            {...register('searchTerm', { required: true })}
-                        />
-                        <IconButton
-                            type="submit"
-                            sx={{ p: '10px' }}
-                            aria-label="search"
-                        >
-                            <SearchIcon />
-                        </IconButton>
-                    </Paper>
-                </Box>
-                <Typography
-                    sx={{
-                        marginLeft: { xs: '10px', sm: '80px' },
-                        paddingLeft: '5px',
-                        height: '24px',
-                        transform: 'translateY(-15px)',
-                        color: theme.palette.error.main,
-                    }}
-                >
-                    {errors.searchTerm?.type === 'required' &&
-                        'Please provide a search term'}
-                </Typography>
+                        <SearchIcon />
+                    </IconButton>
+                </Paper>
             </Box>
-
-            {/* Outlet for nested routes */}
-            <Outlet />
-        </>
+            <Typography
+                sx={{
+                    marginLeft: { xs: '10px', sm: '80px' },
+                    paddingLeft: '5px',
+                    height: '24px',
+                    transform: 'translateY(-15px)',
+                    color: theme.palette.error.main,
+                }}
+            >
+                {errors.searchTerm?.type === 'required' &&
+                    'Please provide a search term'}
+            </Typography>
+        </Box>
     );
 }
-
 export default SearchMovies;

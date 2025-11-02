@@ -3,8 +3,6 @@ import axios from 'axios';
 import { traktClientId, omdbApiKey } from '@/utils/constants';
 
 export default function useMovies(searchTerm) {
-    console.log('I am called');
-
     const fetchMovies = async () => {
         // If there is no searchTerm, fetch trending movies
         const traktUrl = searchTerm
